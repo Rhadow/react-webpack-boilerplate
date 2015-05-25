@@ -1,6 +1,7 @@
 var express = require('express'),
     path = require('path'),
-    httpProxy = require('http-proxy');
+    httpProxy = require('http-proxy'),
+    opn = require('opn');
 
 var app = express(),
     proxy = httpProxy.createProxyServer();
@@ -28,4 +29,5 @@ proxy.on('error', function(e) {
 
 app.listen(port, function() {
     console.log('Server running on port: ' + port);
+    opn('http://localhost:' + port);
 })

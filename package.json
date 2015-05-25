@@ -29,6 +29,7 @@
     "express": "^4.12.4",
     "http-proxy": "^1.11.1",
     "node-libs-browser": "^0.5.2",
+    "opn": "^1.0.2",
     "react": "^0.13.3",
     "style-loader": "^0.12.3",
     "webpack": "^1.9.9",
