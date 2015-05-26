@@ -1,3 +1,4 @@
+require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 require('./assets/styles/app.css');
 
 import React from 'react';
