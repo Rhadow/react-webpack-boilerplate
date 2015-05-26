@@ -1,5 +1,5 @@
 # React-Webpack-Boilerplate
-[![Maintenance Status][status-image]][status-url] [![Build Status][travis-image]][travis-url][![Dependency Status][deps-image]][deps-url]
+[![Maintenance Status][status-image]][status-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url]
 
 React project boilerplate with webpack and ES6
 
