@@ -2,7 +2,7 @@ var Webpack = require('webpack'),
     path = require('path'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'app', 'app.js');
+    mainPath = path.resolve(__dirname, 'src', 'app.js');
 
 var config = {
     devtool: 'eval',
@@ -19,17 +19,24 @@ var config = {
     module: {
         loaders: [
             {
-                test: /.js(x)?$/,
+                test: /\.js(x)?$/,
                 loader: 'babel',
                 exclude: nodeModulesPath
             },
             {
-                test: /.css$/,
-                loaders: ['style', 'css']
+                test: /\.(css|scss)$/,
+                loaders: ['style', 'css', 'sass']
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                loader: 'url?limit=8192'
             }
         ]
     },
-    plugins: [new Webpack.HotModuleReplacementPlugin()]
+    plugins: [
+        new Webpack.HotModuleReplacementPlugin(),
+        new Webpack.NoErrorsPlugin()
+    ]
 };
 
 module.exports = config;

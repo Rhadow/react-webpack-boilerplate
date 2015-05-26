@@ -1,4 +1,7 @@
+require('./assets/styles/app.css');
+
 import React from 'react';
+import Profile from './components/Profile/Profile.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -6,7 +9,10 @@ class App extends React.Component {
     }
     render() {
         return (
-            <h1>Hello Webpack!</h1>
+        	<div>
+                <h1>Hello Webpack!</h1>
+                <Profile />
+            </div>
         );
     }
 }
