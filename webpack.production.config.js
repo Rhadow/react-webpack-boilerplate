@@ -7,7 +7,10 @@ var Webpack = require('webpack'),
 
 var config = {
     devtool: 'source-map',
-    entry: mainPath,
+    entry: {
+        app: [mainPath],
+        vendors: ['react', 'jquery', 'bootstrap']
+    },
     output: {
         path: buildPath,
         filename: 'bundle.js',
@@ -27,12 +30,26 @@ var config = {
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                 loader: 'url?limit=8192'
+            },
+            {
+                test : /\.(woff|woff2|ttf|eot)$/,
+                loader: 'url'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css")
-    ]
+        new ExtractTextPlugin("styles.css"),
+        new Webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            "root.jQuery": "jquery"
+        }),
+        new Webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js', Infinity)
+    ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    }
 };
 
 module.exports = config;

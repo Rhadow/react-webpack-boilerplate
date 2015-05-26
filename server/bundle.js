@@ -11,7 +11,7 @@ module.exports = function() {
 
     compiler.plugin('compile', function() {
         console.log('Bundling...');
-        bundleStart = Date.now()
+        bundleStart = Date.now();
     });
 
     compiler.plugin('done', function() {
