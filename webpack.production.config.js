@@ -48,7 +48,7 @@ var config = {
         new Webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js', Infinity)
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.css', '.scss']
     }
 };
 
