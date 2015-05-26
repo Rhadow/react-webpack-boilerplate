@@ -1,7 +1,7 @@
 {
-  "name": "webpack-boiler-plate",
+  "name": "react-webpack-boilerplate",
   "version": "0.0.1",
-  "description": "Webpack boiler plate using proxies with webpack-dev-server",
+  "description": "React project boilerplate with webpack and ES6",
   "main": "index.js",
   "scripts": {
     "dev": "node server",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rhadow/webpack-boiler-plate.git"
+    "url": "https://github.com/Rhadow/react-webpack-boilerplate.git"
   },
   "keywords": [
     "webpack",
@@ -20,9 +20,9 @@
   "author": "Rhadow",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rhadow/webpack-boiler-plate/issues"
+    "url": "https://github.com/Rhadow/react-webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/Rhadow/webpack-boiler-plate",
+  "homepage": "https://github.com/Rhadow/react-webpack-boilerplate",
   "devDependencies": {
     "babel-core": "^5.4.7",
     "babel-loader": "^5.1.3",
