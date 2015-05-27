@@ -17,7 +17,7 @@
   "rules": {
     "block-scoped-var": 2,
     "camelcase": 0,
-    "comma-style": [2, "first"],
+    "comma-style": 2,
     "curly": [2, "all"],
     "dot-notation": [
       2,
@@ -37,6 +37,7 @@
       "_": false
     },
     "guard-for-in": 2,
+    "key-spacing": 0,
     "new-cap": 2,
     "no-bitwise": 2,
     "no-caller": 2,
@@ -49,15 +50,17 @@
     "no-irregular-whitespace": 2,
     "no-iterator": 2,
     "no-loop-func": 2,
-    "no-multi-str": 2,
+    "no-multi-spaces": 0,
+    "no-multi-str": 0,
     "no-mixed-spaces-and-tabs": 0,
     "no-new": 2,
-    "no-plusplus": 2,
+    "no-plusplus": 0,
     "no-proto": 2,
     "no-script-url": 2,
     "no-sequences": 2,
     "no-shadow": 2,
     "no-undef": 2,
+    "no-underscore-dangle": 0,
     "no-unused-vars": 2,
     "no-use-before-define": true,
     "no-with": 2,
@@ -74,7 +77,9 @@
     "react/no-did-update-set-state": 2,
     "react/no-multi-comp": 2,
     "react/no-unknown-property": 2,
-    "react/prop-types": 2,
+    "react/prop-types": [2, {
+        ignore: 'children'
+    }],
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 2,
     "react/sort-comp": 2,
