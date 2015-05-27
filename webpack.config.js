@@ -1,5 +1,6 @@
 var Webpack = require('webpack'),
     path = require('path'),
+    eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
     mainPath = path.resolve(__dirname, 'src', 'app.js');
@@ -20,6 +21,13 @@ var config = {
         publicPath: '/build/'
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.js(x)?$/,
+                loader: 'eslint',
+                exclude: nodeModulesPath
+            }
+        ],
         loaders: [
             {
                 test: /\.js(x)?$/,
@@ -53,6 +61,9 @@ var config = {
     ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss']
+    },
+    eslint: {
+        configFile: eslintrcPath
     }
 };
 

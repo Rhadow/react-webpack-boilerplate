@@ -1,5 +1,5 @@
 # React-Webpack-Boilerplate
-[![Maintenance Status][status-image]][status-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url]
+[![Maintenance Status][status-image]][status-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url] [![Code Climate][climate-image]][climate-url]
 
 React project boilerplate with webpack and ES6
 
@@ -33,10 +33,13 @@ $ npm run wdeploy
 
 
 [travis-url]: https://travis-ci.org/Rhadow/react-webpack-boilerplate
-[travis-image]: http://img.shields.io/travis/yannickcr/eslint-plugin-react/master.svg?style=flat-square
+[travis-image]: https://travis-ci.org/Rhadow/react-webpack-boilerplate.svg?branch=master
 
 [deps-url]: https://david-dm.org/Rhadow/react-webpack-boilerplate
-[deps-image]: https://img.shields.io/david/dev/yannickcr/eslint-plugin-react.svg?style=flat-square
+[deps-image]: https://david-dm.org/Rhadow/react-webpack-boilerplate.svg
 
 [status-url]: https://github.com/Rhadow/react-webpack-boilerplate/pulse
 [status-image]: http://img.shields.io/badge/status-maintained-brightgreen.svg?style=flat-square
+
+[climate-url]: https://codeclimate.com/github/Rhadow/react-webpack-boilerplate
+[climate-image]: https://codeclimate.com/github/Rhadow/react-webpack-boilerplate/badges/gpa.svg
