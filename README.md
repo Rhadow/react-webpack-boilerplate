@@ -45,7 +45,7 @@ For WINDOWS User
 $ npm run wdeploy
 ```
 
-Every javascript and assets file will be bundled into `dist/build` folder.
+Every javascript and assets file will be bundled into `dist` folder.
 
 ## License
 
