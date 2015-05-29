@@ -1,9 +1,15 @@
 var Webpack = require('webpack'),
     path = require('path'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    nodeModulesPath = path.resolve(__dirname, 'node_modules'),
+    util = require('util'),
+    pkg = require('./package.json'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'src', 'app.js');
+    mainPath = path.resolve(__dirname, 'src', 'app.js'),
+    cssBundleName = util.format('style.bundle.%s.css', pkg.version),
+    jsBundleName = util.format('app.bundle.%s.js', pkg.version);
 
 var config = {
     devtool: 'source-map',
@@ -13,8 +19,8 @@ var config = {
     },
     output: {
         path: buildPath,
-        filename: 'bundle.js',
-        publicPath: './'
+        filename: jsBundleName,
+        publicPath: './build/'
     },
     module: {
         loaders: [
@@ -38,18 +44,25 @@ var config = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin(cssBundleName, {
+            allChunks: true
+        }),
         new Webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery",
-            "root.jQuery": "jquery"
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            'root.jQuery': 'jquery'
         }),
         new Webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js', Infinity),
         new Webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
+        }),
+        new HtmlWebpackPlugin({
+            title: pkg.name,
+            filename: '../index.html',
+            template: './src/assets/templates/index-template.html'
         })
     ],
     resolve: {

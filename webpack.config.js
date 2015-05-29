@@ -1,12 +1,18 @@
 var Webpack = require('webpack'),
     path = require('path'),
-    eslintrcPath = path.resolve(__dirname, '.eslintrc'),
+    util = require('util'),
+    pkg = require('./package.json'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'src', 'app.js');
+    mainPath = path.resolve(__dirname, 'src', 'app.js'),
+    jsBundleName = util.format('app.bundle.%s.js', pkg.version);
 
 var config = {
     devtool: 'eval',
+    watch: true,
     entry: {
         app: [
             'webpack/hot/dev-server',
@@ -17,7 +23,7 @@ var config = {
     },
     output: {
         path: buildPath,
-        filename: 'bundle.js',
+        filename: jsBundleName,
         publicPath: '/build/'
     },
     module: {
@@ -51,13 +57,18 @@ var config = {
     plugins: [
         new Webpack.HotModuleReplacementPlugin(),
         new Webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery",
-            "root.jQuery": "jquery"
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            'root.jQuery': 'jquery'
         }),
         new Webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js', Infinity),
-        new Webpack.NoErrorsPlugin()
+        new Webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            title: pkg.name,
+            filename: 'index.html',
+            template: './src/assets/templates/index-template.html'
+        })
     ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss']
