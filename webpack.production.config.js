@@ -6,7 +6,7 @@ var Webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
-    buildPath = path.resolve(__dirname, 'public', 'build'),
+    buildPath = path.resolve(__dirname, 'dist', 'build'),
     mainPath = path.resolve(__dirname, 'src', 'app.js'),
     cssBundleName = util.format('style.bundle.%s.css', pkg.version),
     jsBundleName = util.format('app.bundle.%s.js', pkg.version);

@@ -1,14 +1,10 @@
 var Webpack = require('webpack'),
-    path = require('path'),
-    util = require('util'),
-    pkg = require('./package.json'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    path = require('path');
 
 var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
-    buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'src', 'app.js'),
-    jsBundleName = util.format('app.bundle.%s.js', pkg.version);
+    buildPath = path.resolve(__dirname, 'server', 'dev', 'build'),
+    mainPath = path.resolve(__dirname, 'src', 'app.js');
 
 var config = {
     devtool: 'eval',
@@ -23,7 +19,7 @@ var config = {
     },
     output: {
         path: buildPath,
-        filename: jsBundleName,
+        filename: 'bundle.js',
         publicPath: '/build/'
     },
     module: {
@@ -63,12 +59,7 @@ var config = {
             'root.jQuery': 'jquery'
         }),
         new Webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js', Infinity),
-        new Webpack.NoErrorsPlugin(),
-        new HtmlWebpackPlugin({
-            title: pkg.name,
-            filename: 'index.html',
-            template: './src/assets/templates/index-template.html'
-        })
+        new Webpack.NoErrorsPlugin()
     ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss']
