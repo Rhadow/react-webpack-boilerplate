@@ -6,8 +6,8 @@ var Webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
-    buildPath = path.resolve(__dirname, 'dist', 'build'),
     mainPath = path.resolve(__dirname, 'src', 'app.js'),
+    buildPath = path.resolve(__dirname, 'dist'),
     cssBundleName = util.format('style.bundle.%s.css', pkg.version),
     jsBundleName = util.format('app.bundle.%s.js', pkg.version);
 
@@ -19,8 +19,7 @@ var config = {
     },
     output: {
         path: buildPath,
-        filename: jsBundleName,
-        publicPath: './build/'
+        filename: jsBundleName
     },
     module: {
         loaders: [
@@ -61,7 +60,7 @@ var config = {
         }),
         new HtmlWebpackPlugin({
             title: pkg.name,
-            filename: '../index.html',
+            filename: 'index.html',
             template: './src/assets/templates/index-template.html'
         })
     ],
