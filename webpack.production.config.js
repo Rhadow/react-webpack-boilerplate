@@ -8,6 +8,7 @@ var Webpack = require('webpack'),
 var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     mainPath = path.resolve(__dirname, 'src', 'app.js'),
     buildPath = path.resolve(__dirname, 'dist'),
+    htmlTemplatePath = path.resolve(__dirname, 'src', 'assets', 'templates', 'index-template.html'),
     cssBundleName = util.format('style.bundle.%s.css', pkg.version),
     jsBundleName = util.format('app.bundle.%s.js', pkg.version);
 
@@ -61,7 +62,7 @@ var config = {
         new HtmlWebpackPlugin({
             title: pkg.name,
             filename: 'index.html',
-            template: './src/assets/templates/index-template.html'
+            template: htmlTemplatePath
         })
     ],
     resolve: {
