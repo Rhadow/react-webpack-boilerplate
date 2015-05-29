@@ -1,13 +1,10 @@
-var Webpack = require('webpack'),
+var webpack = require('webpack'),
     WebpackDevServer = require('webpack-dev-server'),
-    webpackConfig = require('../webpack.config.js'),
-    path = require('path'),
-    fs = require('fs'),
-    mainPath = path.resolve(__dirname, '..', 'app', 'app.js');
+    webpackConfig = require('../webpack.config.js');
 
 module.exports = function() {
     var bundleStart = null;
-    var compiler = Webpack(webpackConfig);
+    var compiler = webpack(webpackConfig);
 
     compiler.plugin('compile', function() {
         console.log('Bundling...');
