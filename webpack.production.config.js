@@ -15,7 +15,7 @@ var config = {
     devtool: 'source-map',
     entry: {
         app: [mainPath],
-        vendors: ['react', 'jquery', 'bootstrap']
+        vendors: pkg.vendors
     },
     output: {
         path: buildPath,

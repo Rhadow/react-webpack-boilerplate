@@ -1,5 +1,6 @@
 var Webpack = require('webpack'),
-    path = require('path');
+    path = require('path'),
+    pkg = require('./package.json');
 
 var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
@@ -15,7 +16,7 @@ var config = {
             'webpack-dev-server/client?http://localhost:8080',
             mainPath
         ],
-        vendors: ['react', 'jquery', 'bootstrap']
+        vendors: pkg.vendors
     },
     output: {
         path: buildPath,

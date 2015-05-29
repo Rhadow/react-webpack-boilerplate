@@ -31,6 +31,8 @@ $ npm run dev
 
 Your application will be available at [http://localhost:3000](http://localhost:3000).
 
+Whenever you need to add a third party plugins or libraries into common `vendor.js`, access to `package.json` and insert the path or module name into `vendors`.
+
 ## Production
 
 For MAC/LINUX User
