@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server",
-    "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "wdeploy": "set NODE_ENV=production&&webpack -p --config webpack.production.config.js"
+    "clean": "rimraf dist",
+    "deploy": "npm run clean && NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "wdeploy": "npm run clean&&set NODE_ENV=production&&webpack -p --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,11 @@
     "express": "^4.12.4",
     "extract-text-webpack-plugin": "^0.8.1",
     "file-loader": "^0.8.4",
+    "html-webpack-plugin": "^1.4.0",
     "http-proxy": "^1.11.1",
     "node-libs-browser": "^0.5.2",
     "opn": "^1.0.2",
+    "rimraf": "^2.3.4",
     "sass-loader": "^1.0.2",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",

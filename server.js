@@ -8,9 +8,9 @@ var app = express(),
 
 var isProduction = process.env.NODE_ENV === 'production',
     port = isProduction ? 8080 : 3000,
-    publicPath = path.resolve(__dirname, 'public');
+    devPath = path.resolve(__dirname, 'server', 'dev');
 
-app.use(express.static(publicPath));
+app.use(express.static(devPath));
 
 if(!isProduction) {
     var bundle = require('./server/bundle.js');
@@ -23,11 +23,11 @@ if(!isProduction) {
     });
 }
 
-proxy.on('error', function(e) {
+proxy.on('error', function() {
     console.log('Could not connect to proxy, please try again...');
-})
+});
 
 app.listen(port, function() {
     console.log('Server running on port: ' + port);
     opn('http://localhost:' + port);
-})
+});
