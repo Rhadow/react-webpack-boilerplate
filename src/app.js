@@ -1,5 +1,5 @@
-require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
-require('./assets/styles/app.scss');
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './assets/styles/app.scss';
 
 import React from 'react';
 import Modal from './components/Modal/Modal';

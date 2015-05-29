@@ -1,4 +1,4 @@
-require('./Modal.scss');
+import './Modal.scss';
 
 import React from 'react';
 
