@@ -9,8 +9,8 @@ var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     mainPath = path.resolve(__dirname, 'src', 'app.js'),
     buildPath = path.resolve(__dirname, 'dist'),
     htmlTemplatePath = path.resolve(__dirname, 'src', 'assets', 'templates', 'index-template.html'),
-    cssBundleName = util.format('./assets/style/style.bundle.%s.css', pkg.version),
-    jsBundleName = util.format('./js/app.bundle.%s.js', pkg.version);
+    cssBundleName = util.format('style.bundle.%s.css', pkg.version),
+    jsBundleName = util.format('js/app.bundle.%s.js', pkg.version);
 
 var config = {
     devtool: 'source-map',
@@ -20,8 +20,7 @@ var config = {
     },
     output: {
         path: buildPath,
-        filename: jsBundleName,
-        publicPath: '/'
+        filename: jsBundleName
     },
     module: {
         loaders: [
@@ -35,12 +34,12 @@ var config = {
                 loader: ExtractTextPlugin.extract('css?sourceMap!sass?sourceMap')
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
-                loader: 'url?limit=8192&name=/assets/images/[name].[ext]'
+                test: /\.(png|jpg|jpeg|gif)$/,
+                loader: 'url?limit=8192&name=assets/images/[name].[ext]'
             },
             {
-                test : /\.(woff|woff2|ttf|eot)$/,
-                loader: 'url'
+                test : /\.(woff|woff2|ttf|eot|svg)$/,
+                loader: 'url?limit=8192&name=assets/fonts/[name].[ext]'
             }
         ]
     },
@@ -54,7 +53,7 @@ var config = {
             'window.jQuery': 'jquery',
             'root.jQuery': 'jquery'
         }),
-        new Webpack.optimize.CommonsChunkPlugin('vendors', './js/vendors.bundle.js', Infinity),
+        new Webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.bundle.js', Infinity),
         new Webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
