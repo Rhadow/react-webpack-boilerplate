@@ -4,7 +4,7 @@ var Webpack = require('webpack'),
 
 var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
     nodeModulesPath = path.resolve(__dirname, 'node_modules'),
-    buildPath = path.resolve(__dirname, 'server', 'dev', 'build'),
+    buildPath = path.resolve(__dirname, 'src', 'build'),
     mainPath = path.resolve(__dirname, 'src', 'app.js');
 
 var config = {

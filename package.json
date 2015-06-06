@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node server",
     "clean": "rimraf dist",
-    "deploy": "npm run clean && NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "wdeploy": "npm run clean&&set NODE_ENV=production&&webpack -p --config webpack.production.config.js"
+    "deploy": "npm run clean && NODE_ENV=production webpack -p --progress --config webpack.production.config.js",
+    "wdeploy": "npm run clean&&set NODE_ENV=production&&webpack -p --progress --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",

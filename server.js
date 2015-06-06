@@ -8,7 +8,7 @@ var app = express(),
 
 var isProduction = process.env.NODE_ENV === 'production',
     port = isProduction ? 8080 : 3000,
-    devPath = path.resolve(__dirname, 'server', 'dev');
+    devPath = path.resolve(__dirname, 'src');
 
 app.use(express.static(devPath));
 
