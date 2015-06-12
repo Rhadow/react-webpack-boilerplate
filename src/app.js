@@ -41,4 +41,5 @@ class App extends React.Component {
     }
 }
 
+console.log(App);
 React.render(<App />, document.body);
